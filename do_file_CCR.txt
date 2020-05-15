@@ -1,0 +1,55 @@
+# Compile of CCR.vhd was successful.
+vsim work.ccr
+# vsim work.ccr 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.ccr(a_ccr)
+# Loading work.dec(decoder)
+add wave -position insertpoint  \
+sim:/ccr/Set_clr_carry \
+sim:/ccr/en \
+sim:/ccr/dec_en \
+sim:/ccr/clk \
+sim:/ccr/rst \
+sim:/ccr/ALU_cout \
+sim:/ccr/decoder \
+sim:/ccr/ALU \
+sim:/ccr/CF \
+sim:/ccr/ZF \
+sim:/ccr/NF \
+sim:/ccr/enable \
+sim:/ccr/dec_out \
+sim:/ccr/C \
+sim:/ccr/N \
+sim:/ccr/Z
+force -freeze sim:/ccr/Set_clr_carry 1 0
+run
+force -freeze sim:/ccr/Set_clr_carry 0 0
+force -freeze sim:/ccr/en 1 0
+force -freeze sim:/ccr/clk 1 0
+force -freeze sim:/ccr/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/ccr/ALU_cout 1 0
+force -freeze sim:/ccr/ALU 16'h00000000 0
+run
+force -freeze sim:/ccr/ALU 16'hffffffff 0
+run
+force -freeze sim:/ccr/ALU 16'h0000ffff 0
+run
+force -freeze sim:/ccr/decoder 00 0
+force -freeze sim:/ccr/dec_en 1 0
+run
+force -freeze sim:/ccr/ALU_cout u 0
+run
+force -freeze sim:/ccr/ALU_cout 0 0
+run
+force -freeze sim:/ccr/ALU 16'h00000000 0
+run
+force -freeze sim:/ccr/decoder 01 0
+run
+force -freeze sim:/ccr/ALU 16'hffff0000 0
+run
+force -freeze sim:/ccr/decoder 10 0
+run
+
+force -freeze sim:/ccr/decoder 10 0
