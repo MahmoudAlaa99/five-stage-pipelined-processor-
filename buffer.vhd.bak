@@ -28,7 +28,7 @@ BEGIN
 		ELSIF(EN = '0' OR INT ='1' OR RET ='1' OR RTI ='1' OR BRANCH ='1' OR HAZARDDETECT ='1') THEN
 			Q <= (others =>'Z');		
 		ELSIF rising_edge(CLK) and EN = '1' THEN
-			Finish1 <= Finish;
+			FinishOut <= Finish;
 			IF(Finish = '0' and D(n-2) = '1') THEN
 				Q <= "000000000001111100000000000" & D(N-33 DOWNTO 0);
 			ELSE   

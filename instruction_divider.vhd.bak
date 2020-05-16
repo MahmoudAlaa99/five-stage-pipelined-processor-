@@ -13,8 +13,8 @@ END instruction_divider;
 ARCHITECTURE a_instruction_divider OF instruction_divider IS
 BEGIN
 
-Output(n-1 DOWNTO n/2)<= Input when Sel(1) = '1' OR Sel(0) = '0' OR Sel="XX" OR Sel="UU";
-Output((n/2)-1 DOWNTO 0)<= Input when Sel = "01"
+Output(2*n-1 DOWNTO n)<= Input when Sel(1) = '1' OR Sel(0) = '0' OR Sel="XX" OR Sel="UU";
+Output(n-1 DOWNTO 0)<= Input when Sel = "01"
 		       ELSE (OTHERS=>'0');
 Finish<= '1' when Sel = "01"
 	 ELSE '0';

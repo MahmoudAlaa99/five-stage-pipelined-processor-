@@ -22,7 +22,7 @@ PORT   (a, b : IN std_logic_vector(n-1 DOWNTO 0) ;
      SIGNAL Cout : std_logic;	
 BEGIN
 
-     x <= "00000000000000000000000000000001";
+     x <= (0=>'1', others=>'0') ;
 
      u0: fulladder GENERIC MAP (n) PORT MAP (A,x,'0',y,Cout);
 

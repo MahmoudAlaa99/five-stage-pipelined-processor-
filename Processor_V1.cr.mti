@@ -1,0 +1,145 @@
+C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/register.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/register.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_nDFF
+-- Compiling architecture a_my_nDFF of my_nDFF
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/my_adder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_adder
+-- Compiling architecture a_my_adder of my_adder
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/decoder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dec
+-- Compiling architecture decoder of dec
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/CCR.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/CCR.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity CCR
+-- Compiling architecture a_CCR of CCR
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/parta.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/parta.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity parta
+-- Compiling architecture myparta of parta
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/partb.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Z50\Desktop\CUFE\Arch\project\five-stage-pipelined-processor-\partb.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity partb
+-- Compiling architecture archb of partb
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/buffer.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Z50\Desktop\CUFE\Arch\project\five-stage-pipelined-processor-\buffer.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity IntermediateBuffer
+-- Compiling architecture REG_ARCH of IntermediateBuffer
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/partc.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/partc.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity partc
+-- Compiling architecture archc of partc
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/ALU.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALU
+-- Compiling architecture struct of ALU
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/data_memory.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/data_memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity dataMemory
+-- Compiling architecture syncrama of dataMemory
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/full_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/full_adder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity fulladder
+-- Compiling architecture a_fulladder of fulladder
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/register_file.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/register_file.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity register_file
+-- Compiling architecture a_register_file of register_file
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/processor.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Z50\Desktop\CUFE\Arch\project\five-stage-pipelined-processor-\processor.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Compiling entity processor
+-- Compiling architecture a_processor of processor
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/instruction_divider.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Z50\Desktop\CUFE\Arch\project\five-stage-pipelined-processor-\instruction_divider.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity instruction_divider
+-- Compiling architecture a_instruction_divider of instruction_divider
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/control_unit.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Z50\Desktop\CUFE\Arch\project\five-stage-pipelined-processor-\control_unit.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity control_unit
+-- Compiling architecture a_control_unit of control_unit
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/memory.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Z50\Desktop\CUFE\Arch\project\five-stage-pipelined-processor-\memory.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity memory
+-- Compiling architecture syncrama of memory
+
+} {} {}} C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/3X8DECODER.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Z50/Desktop/CUFE/Arch/project/five-stage-pipelined-processor-/3X8DECODER.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_decoder
+-- Compiling architecture A_REG_DECODER of reg_decoder
+
+} {} {}}
