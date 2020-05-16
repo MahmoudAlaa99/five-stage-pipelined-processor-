@@ -13,7 +13,7 @@ END processor;
 
 ARCHITECTURE a_processor OF processor IS
 
-COMPONENT my_nDFF IS
+COMPONENT counter_reg IS
 GENERIC ( n : integer := 32);
 PORT( Clk,Rst,enable1,enable2 : IN std_logic;
 		   d1,d2 : IN std_logic_vector(n-1 DOWNTO 0);
@@ -57,7 +57,7 @@ END COMPONENT;
 
 COMPONENT control_unit IS
 GENERIC ( n : integer := 32);
-PORT( Clk,Rst,Int: IN std_logic;
+PORT( Clk,Rst,Int,Finish: IN std_logic;
 	OpCode: IN std_logic_vector(4 DOWNTO 0);
 	q: OUT std_logic_vector(26 DOWNTO 0);
 	RtiRet: OUT std_logic
@@ -99,7 +99,7 @@ COMPONENT IntermediateBuffer IS
 	GENERIC(N : integer := 32);
 		PORT( 
 		D: IN std_logic_vector(N - 1 DOWNTO 0); 
-		Finish,EN: IN std_logic;
+		EN: IN std_logic;
 		INT: IN std_logic;
 		BRANCH: IN std_logic;
 		RET: IN std_logic;
@@ -107,7 +107,6 @@ COMPONENT IntermediateBuffer IS
 		HAZARDDETECT: IN std_logic;
 		CLK: IN std_logic;
 		RST: IN std_logic;
-		Finish1: OUT std_logic;
 		Q: OUT std_logic_vector(N - 1 DOWNTO 0)
 		);
 END COMPONENT;
@@ -119,26 +118,26 @@ SIGNAL FetchedInstruction: std_logic_vector(15 DOWNTO 0);
 SIGNAL SignExtend: std_logic_vector(19 DOWNTO 0);
 SIGNAL ControlUnitOut: std_logic_vector(26 DOWNTO 0);
 SIGNAL FirstBuffer,FirstBufferIn: std_logic_vector(80 DOWNTO 0);
-SIGNAL SecondBuffer,SecondBufferIn: std_logic_vector(154 DOWNTO 0);
+SIGNAL SecondBuffer,SecondBufferIn: std_logic_vector(184 DOWNTO 0);
 SIGNAL PCOut,PCAdderOut,Instruction,ReadD1,ReadD2: std_logic_vector(n-1 DOWNTO 0);
 -----------------------------------------------------------------
 BEGIN
 
-PC: my_nDFF GENERIC MAP (n) PORT MAP(Clk,Rst,'1','0',PCAdderOut,PCOut,PCOut);
+PC: counter_reg GENERIC MAP (n) PORT MAP(Clk,Rst,'1','0',PCAdderOut,PCOut,PCOut);
 PCAdder: fulladder GENERIC MAP (n) PORT MAP(PCOut,"00000000000000000000000000000001",'0',PCAdderOut,PCAdderCOut);
 IM: memory PORT MAP(PCOut,FetchedInstruction);
 ------------------------------
 FirstBufferIn <= Int&InPort&FetchedInstruction&PCOut;
 NotRtiRet <= not RtiRet;
-B0: IntermediateBuffer GENERIC MAP (n=>81) PORT MAP(FirstBufferIn,'1',NotRtiRet,'0','0','0','0','0',Clk,Rst,FinishOut(0),FirstBuffer);
+B0: IntermediateBuffer GENERIC MAP (n=>81) PORT MAP(FirstBufferIn,NotRtiRet,'0','0','0','0','0',Clk,Rst,FirstBuffer);
 ------------------------------
-IDSel <= FinishOut(1)&SecondBuffer(153);
+IDSel <= SecondBuffer(157)&SecondBuffer(183);
 ID: instruction_divider GENERIC MAP (n) PORT MAP(Clk,IDSel,FirstBuffer(47 DOWNTO 32),IDFinish,Instruction);
-CU: control_unit GENERIC MAP (n) PORT MAP(Clk,Rst,Int,Instruction(31 DOWNTO 27),ControlUnitOut,RtiRet);
-RF: register_file GENERIC MAP (n) PORT MAP(Clk,Rst,ControlUnitOut(24),ControlUnitOut(23),ControlUnitOut(22),Instruction(26 DOWNTO 24),Instruction(23 DOWNTO 21),"000","00000000000000000000000000000001","000","00000000000000000000000000000001",ReadD1,ReadD2);
+CU: control_unit GENERIC MAP (n) PORT MAP(Clk,Rst,Int,IDFinish,Instruction(31 DOWNTO 27),ControlUnitOut,RtiRet);
+RF: register_file GENERIC MAP (n) PORT MAP(Clk,Rst,ControlUnitOut(24),'1','1',Instruction(26 DOWNTO 24),Instruction(23 DOWNTO 21),"000","00000000000000000000000000000001","000","00000000000000000000000000000001",ReadD1,ReadD2);
 ------------------------------
-SecondBufferIn <= ControlUnitOut(26 DOWNTO 25)&ControlUnitOut(19 DOWNTO 0)&FirstBuffer(80 DOWNTO 48)&ReadD1&ReadD2&"000"&Instruction(23 DOWNTO 19)&SignExtend&FirstBuffer(31 DOWNTO 0);
-B1: IntermediateBuffer GENERIC MAP (n=>155) PORT MAP(SecondBufferIn,IDFinish,'1','0','0','0','0','0',Clk,Rst,FinishOut(1),SecondBuffer);
+SecondBufferIn <= ControlUnitOut&IDFinish&FirstBuffer(80 DOWNTO 48)&ReadD1&ReadD2&"000"&Instruction(23 DOWNTO 19)&SignExtend&FirstBuffer(31 DOWNTO 0);
+B1: IntermediateBuffer GENERIC MAP (n=>185) PORT MAP(SecondBufferIn,'1','0','0','0','0','0',Clk,Rst,SecondBuffer);
 ------------------------------
 
 END a_processor;

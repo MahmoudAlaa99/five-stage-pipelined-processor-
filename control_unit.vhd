@@ -3,7 +3,7 @@ USE IEEE.std_logic_1164.all;
 
 ENTITY control_unit IS
 GENERIC ( n : integer := 32);
-PORT( Clk,Rst,Int: IN std_logic;
+PORT( Clk,Rst,Int,Finish: IN std_logic;
 	OpCode: IN std_logic_vector(4 DOWNTO 0);
 	q: OUT std_logic_vector(26 DOWNTO 0);
 	RtiRet: OUT std_logic
@@ -13,14 +13,15 @@ END control_unit;
 ARCHITECTURE a_control_unit OF control_unit IS
 BEGIN
 
-PROCESS(Clk,Rst,Int)
+PROCESS(Clk,OpCode,Rst,Int,Finish)
 BEGIN
 IF(Rst='1')THEN
 	q <= "000000000001111100000000000";	--NOP
 ELSIF(Int='1')THEN
 	q <= (OTHERS=>'Z');
-ELSIF rising_edge(Clk)THEN
-IF (OpCode = "00000") THEN	--CLC
+ELSIF (Finish = '0' and (OpCode = "01010" or OpCode = "10010" or OpCode = "10011" or OpCode = "10100")) THEN	--32bits instructions
+	q <= "010000000001111100000000000";
+ELSIF (OpCode = "00000") THEN	--CLC
 	q <= "000000000001111110000000000";
 ELSIF (OpCode = "00001") THEN	--STC
 	q <= "000000000001111111000000000";
@@ -76,7 +77,6 @@ ELSIF (OpCode = "11010") THEN	--RET
 	q <= "100000000001111100110011001"; 
 ELSIF (OpCode = "11011") THEN	--RTI
 	q <= "100000000001111100110010101"; 
-END IF;
 END IF;
 END PROCESS;
 
